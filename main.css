@@ -1,0 +1,54 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+input, button {
+    font-family: inherit
+}
+
+#Calculator {
+    display: flex;
+    flex-direction: column;
+    font-family: monospace;
+}
+
+#Buttons {
+    background: lightblue;
+    display: grid;
+    grid-template-areas:
+        "CE C  .  ."
+        "N1 N2 N3 ."
+        "N4 N5 N6 ."
+        "N7 N8 N9 ."
+        "N0 .  .  .";
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows   : repeat(5, 1fr);
+}
+
+#N0 { grid-area: N0 }
+#N1 { grid-area: N1 }
+#N2 { grid-area: N2 }
+#N3 { grid-area: N3 }
+#N4 { grid-area: N4 }
+#N5 { grid-area: N5 }
+#N6 { grid-area: N6 }
+#N7 { grid-area: N7 }
+#N8 { grid-area: N8 }
+#N9 { grid-area: N9 }
+
+#Calculator input {
+    text-align: right;
+}
+
+#Buttons button {
+    aspect-ratio: 1 / 1;
+}
