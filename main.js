@@ -89,8 +89,6 @@ function onBackspace () {
 
 // Set up interface events
 $$`#Calculator button`.forEach(button => {
-    console.log(button.className)
-
     switch (button.id) {
         case 'Dot'      : return button.addEventListener('click', onDot)
         case 'Clear'    : return button.addEventListener('click', onClear)
