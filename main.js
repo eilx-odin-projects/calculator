@@ -27,7 +27,7 @@ let display = $`#Display`
 function onNumber (number) {
     if (equals_pressed) {
         equals_pressed = false
-        current = null
+        current = 0
     }
 
     if (current) current += number
@@ -43,7 +43,7 @@ function onOperator (operator) {
     total = operation(Number(current))
     operation = operators[operator](total)
 
-    current = null
+    current = 0
     history.value = `${round(total, 3)} ${operator}`
     display.value = null
 }
@@ -60,7 +60,7 @@ function onEquals () {
 }
 
 function onDot () {
-    if (current.includes('.')) return
+    if (current.toString().includes('.')) return
     equals_pressed = false
 
     current += '.'
@@ -71,7 +71,7 @@ function onDot () {
 function onClear () {
     equals_pressed = false
     total = null
-    current = null
+    current = 0
     operation = operators[' ']
     history.value = null
     display.value = '...'
