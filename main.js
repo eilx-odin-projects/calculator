@@ -13,7 +13,7 @@ const operators = {
 }
 
 let total                      // Sum total of operations
-let current                    // Current number being inputted
+let current = 0                // Current number being inputted
 let operation = operators[' '] // Current operation in progress
 let equals_pressed = false     // Whether equals has just been pressed
 
