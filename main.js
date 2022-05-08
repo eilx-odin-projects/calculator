@@ -44,7 +44,7 @@ function onOperator (operator) {
     operation = operators[operator](total)
 
     current = 0
-    history.value = `${round(total, 3)} ${operator}`
+    history.value = `${round(total, 3)}${operator}`
     display.value = null
 }
 
@@ -74,7 +74,7 @@ function onClear () {
     current = 0
     operation = operators[' ']
     history.value = null
-    display.value = '...'
+    display.value = null
 }
 
 
