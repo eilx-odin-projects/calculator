@@ -4,7 +4,9 @@ const operators = {
     "+": x => y => x + y,
     "-": x => y => x - y,
     "x": x => y => x * y,
-    "÷": x => y => x / y,
+    "÷": x => y => !y
+        ? division_by_zero || (division_by_zero = Number(prompt("Division by zero? Pfft, how about you define it!")) || 0)
+        : x / y,
 
     "^": x => y => Math.pow(x, y),
     "√": x => y => Math.sqrt(x, y),
@@ -16,6 +18,7 @@ let total                      // Sum total of operations
 let current = 0                // Current number being inputted
 let operation = operators[' '] // Current operation in progress
 let equals_pressed = false     // Whether equals has just been pressed
+let division_by_zero           // User-defined value for division by zero
 
 let history = $`#History`
 let display = $`#Display`
