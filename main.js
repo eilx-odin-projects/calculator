@@ -87,23 +87,26 @@ function onBackspace () {
 }
 
 
-$$`.number`.forEach(button => {
-    button.addEventListener('click', function () { onNumber(this.innerText) })
+// Set up interface events
+$$`#Calculator button`.forEach(button => {
+    console.log(button.className)
+
+    switch (button.id) {
+        case 'Dot'      : return button.addEventListener('click', onDot)
+        case 'Clear'    : return button.addEventListener('click', onClear)
+        case 'Equals'   : return button.addEventListener('click', onEquals)
+        case 'Backspace': return button.addEventListener('click', onBackspace)
+    }
+
+    switch (button.className) {
+        case 'number':
+            return button.addEventListener('click', function () { onNumber(this.innerText) })
+        case 'operator':
+            return button.addEventListener('click', function () { onOperator(this.innerText) })
+    }
 })
 
-
-$$`.operator`.forEach(button => {
-    button.addEventListener('click', function () { onOperator(this.innerText) })
-})
-
-
-$`#Dot`.addEventListener('click', onDot)
-$`#Clear`.addEventListener('click', onClear)
-$`#Equals`.addEventListener('click', onEquals)
-$`#Backspace`.addEventListener('click', onBackspace)
-
-
-// Keyboard support
+// Set up keyboard events
 addEventListener('keydown', ({ key }) => {
     if (!isNaN(key)) return onNumber(key)
 
